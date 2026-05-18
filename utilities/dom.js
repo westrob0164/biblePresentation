@@ -1,35 +1,70 @@
-// utilities/dom.js
+/**
+ * Project: [NEW PROJECT NAME]
+ * File:    dom.js
+ * Desc:    Master DOM element construction engine with global date utilities.
+ **/
+
 if (window.jQuery && !window.jQuery.uniqueSort) {
     window.jQuery.uniqueSort = window.jQuery.unique;
 }
 
-if ($.cssNumber) $.cssNumber.gridColumnStart = true; 
-
+if (window.jQuery && $.cssNumber) {
+    $.cssNumber.gridColumnStart = true;
+}
 
 window.dom = {
+    /**
+     * Highly optimized universal element builder.
+     */
     create(className, appendTo, options = {}) {
-        // 1. Create the element normally
-        const $div = $("<div>").addClass(className);
+        const tagName = options.tag || "div";
+        const $el = $(`<${tagName}>`).addClass(className);
 
-        if (options.html) $div.html(options.html);
-        if (options.id)   $div.attr('id', options.id);
+        if (options.html) $el.html(options.html);
+        if (options.text) $el.text(options.text);
+        if (options.id)   $el.attr('id', options.id);
         
-        // 2. THE VANILLA FIX: Use raw setAttribute for styles
-        // This prevents jQuery from adding "px" to the grid-column-start
+        if (options.attr) {
+            Object.entries(options.attr).forEach(([key, val]) => {
+                $el.attr(key, val);
+            });
+        }
+        
         if (options.style) {
-            $div[0].setAttribute('style', options.style); 
+            $el[0].setAttribute('style', options.style); 
         }
         
         if (options.data) {
             Object.entries(options.data).forEach(([key, val]) => {
-                $div.attr(`data-${key}`, val);
+                $el.attr(`data-${key}`, val);
             });
         }
 
-        return $div.appendTo(appendTo);
-    }
+        if (options.on) {
+            Object.entries(options.on).forEach(([eventName, handler]) => {
+                $el.on(eventName, handler);
+            });
+        }
+
+        return appendTo ? $el.appendTo(appendTo) : $el;
+    },
+
+    // 🚀 THE GLOBAL ATTACHMENT
+    // Automatically binds your date calculations engine here
+    date: window.DateObject ? new window.DateObject() : null
 };
 
 
-// Also attach to window for fallback (optional)
-// window.dom = dom;
+
+
+////////////////////////////////**********  Function Call - RETAINED FOR REFERENCE  **********/
+dom.create("search-input", "#formContainer", {
+    tag: "input",
+    attr: { type: "text", placeholder: "Search records..." },
+    style: "grid-column-start: 2; color: #333;",
+    on: {
+        input: function() { console.log($(this).val()); }
+    }
+});
+
+/**  */

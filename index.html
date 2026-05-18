@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canadian Armed Forces</title>
+    <title>[NEW PROJECT NAME]</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/jquery-ui.min.css">
@@ -17,7 +17,9 @@
     <script src="js/classes/dateClass.js"></script>
 
     <!-- 3. The Toolbox & Engine (Global Objects) -->
+    <script src="utilities/config.js"></script>
     <script src="utilities/utilities.js"></script>
+    <script src="utilities/dom.js"></script>
     <script src="utilities/dbSync.js"></script>
 
     <!-- 4. Main App (The Conductor) -->
@@ -25,7 +27,21 @@
 </head>
 
 <body>
-    
+
+    <!-- Primary Injection Target for main.js and component layout nodes -->
+    <div id="app"></div>
+
+    <!-- Hidden Settings Modal Wireframe Scaffold (Toggled via main.js) -->
+    <div id="settingsModal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content-box">
+            <span id="closeSettings">&times;</span>
+            <h3>System Settings</h3>
+            <button id="saveButton">Backup to SQLite</button>
+            <button id="restoreButton">Restore From Backup</button>
+        </div>
+    </div>
 
 </body>
 </html>
+

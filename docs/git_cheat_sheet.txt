@@ -1,0 +1,44 @@
+Here is a comprehensive reference sheet of the essential Git commands you need for your project workflow. You can copy and paste this into a new text file on your desktop (e.g., git_cheat_sheet.txt) or save it inside your docs/ folder for quick access.
+## 🔍 Checking and Changing Your GitHub Destination Link
+These commands ensure your files are going to the correct repository (like your meal planner) instead of your template folder.
+
+* git remote -v
+* How it works: Displays the exact URL paths (fetch and push) that your current desktop folder is tracking on GitHub.
+* git remote set-url origin <URL>
+* How it works: Changes your destination path instantly. You use this to fix or redirect your project if it accidentally tracks the wrong repository.
+   * Example: git remote set-url origin https://github.com
+
+------------------------------
+## 🚀 The Daily Sync Workflow (Saving and Uploading)
+Use these three commands in exact sequential order every time you finish a coding session on your desktop.
+
+   1. git add .
+   * How it works: Prepares your working tree for a snapshot. The . means "everything." It tracks new files, files you edited, and files you deleted on your desktop.
+   2. git commit -m "your description here"
+   * How it works: Packages your staged items into a permanent, dated snapshot in your project's history. The text inside the quotes is your log note.
+   3. git push
+   * How it works: Uploads your local package straight up to your online repository on GitHub, updating your phone app link on GitHub Pages.
+      * (Note: Use git push -u origin main on the very first upload of a new repository to bind the branches permanently).
+   
+------------------------------
+## 🛠️ Branch Management and History Control
+These commands fix branch naming mismatches or pull online changes down to your computer.
+
+* git branch -m master main
+* How it works: Renames your local branch from the older default name (master) to the modern default name (main) to match GitHub.
+* git pull origin main
+* How it works: Downloads files from your online repository and immediately merges them into your local desktop folder.
+* git pull origin main --allow-unrelated-histories
+* How it works: A specialized pull command used when you initialize a folder locally and need to force-blend its files with a repository created separately on GitHub.
+
+------------------------------
+## 🧹 Diagnostics and Workspace Cleanup
+Use these when something feels stuck or you want to inspect your tracking state.
+
+* git status
+* How it works: Shows you a live summary of your directory. It highlights edited files in red, staged files in green, and tells you what branch you are standing on.
+* git log --oneline
+* How it works: Prints a neat, one-line-per-commit summary list of your project history so you can see your previous saves.
+
+Whenever you want to test these out or begin writing the drop targets for your Phase 2 draggable meal planning layout, let me know! What part of your app would you like to explore next?
+

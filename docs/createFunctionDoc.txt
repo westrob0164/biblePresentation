@@ -1,0 +1,144 @@
+dom.create() Comprehensive Explanation
+
+File: utilities/dom.js
+Function: dom.create(className, appendTo, options = {})
+
+Overview
+--------
+The `dom.create()` function is a universal DOM element builder. It replaces many small helper functions with a single, reliable API that builds HTML elements using jQuery and configures them in a standardized way.
+
+This function is the primary DOM creation method for new projects using this template.
+
+Function Purpose
+----------------
+- Create a new HTML element with a selected tag.
+- Apply a CSS class.
+- Optionally set an element ID.
+- Optionally set inner HTML or text.
+- Optionally set arbitrary attributes.
+- Optionally apply inline CSS style.
+- Optionally register `data-*` attributes.
+- Optionally attach event listeners.
+- Optionally append the element to a parent container.
+- Return the created jQuery element.
+
+Line-by-Line Explanation
+------------------------
+1. `window.dom = {`
+   - Creates a global namespace object on `window` called `dom`, so `dom.create()` is available anywhere.
+
+2. `create(className, appendTo, options = {}) {`
+   - Defines the `create` method.
+   - `className`: the CSS class to add to the element.
+   - `appendTo`: the target container where the element should be inserted.
+   - `options`: optional configuration object with extra settings.
+   - Default is `{}` when no `options` are passed.
+
+3. `const tagName = options.tag || "div";`
+   - Sets the HTML tag to create.
+   - Defaults to `div` when no tag is specified.
+
+4. `const $el = $(`<${tagName}>`).addClass(className);`
+   - Creates the element using jQuery.
+   - Adds the provided class name immediately.
+   - Stores the jQuery element in `$el`.
+
+5. `if (options.html) $el.html(options.html);`
+   - If `options.html` exists, set the element's inner HTML content.
+   - Useful for rich markup inside the element.
+
+6. `if (options.text) $el.text(options.text);`
+   - If `options.text` exists, set the element's text content.
+   - This is safer for plain text because it escapes HTML characters.
+
+7. `if (options.id)   $el.attr('id', options.id);`
+   - Sets the element's `id` attribute if provided.
+
+8. `if (options.attr) {`
+   - Begins processing a generic attributes object.
+   - `options.attr` should be an object like `{ type: 'button', name: 'save' }`.
+
+9. `Object.entries(options.attr).forEach(([key, val]) => { $el.attr(key, val); });`
+   - Iterates over each key/value pair in `options.attr`.
+   - Sets each attribute on the element.
+
+10. `if (options.style) { $el[0].setAttribute('style', options.style); }`
+    - If `options.style` exists, apply inline CSS to the raw DOM node.
+    - Example: `"color: red; margin: 10px;"`.
+
+11. `if (options.data) {`
+    - Begins processing custom `data-*` attributes.
+    - `options.data` should be an object like `{ id: 123, status: 'active' }`.
+
+12. `Object.entries(options.data).forEach(([key, val]) => { $el.attr(`data-${key}`, val); });`
+    - Converts each key/value pair into a `data-*` attribute.
+    - Example: `{ id: 123 }` becomes `data-id="123"`.
+
+13. `if (options.on) {`
+    - Begins processing event handlers.
+    - `options.on` should be an object such as `{ click: handler, input: handler }`.
+
+14. `Object.entries(options.on).forEach(([eventName, handler]) => { $el.on(eventName, handler); });`
+    - Registers each event handler using jQuery `.on()`.
+    - Example: `{ click: () => console.log('clicked') }`.
+
+15. `return appendTo ? $el.appendTo(appendTo) : $el;`
+    - If `appendTo` is provided, append the new element into that container.
+    - If not, return the element without inserting it into the DOM.
+    - This makes the function flexible for both immediate rendering and later use.
+
+Usage Examples
+--------------
+Simple element:
+```javascript
+const box = dom.create('box', '#app', {
+  html: 'Hello world',
+  style: 'padding: 10px; background: #f0f0f0;'
+});
+```
+
+Input field with attributes and event handler:
+```javascript
+const input = dom.create('search-input', '#formContainer', {
+  tag: 'input',
+  attr: { type: 'text', placeholder: 'Search...' },
+  on: { input: (event) => console.log(event.target.value) }
+});
+```
+
+Data-backed item:
+```javascript
+const item = dom.create('item', '#list', {
+  tag: 'li',
+  text: 'Task 1',
+  data: { id: 42 }
+});
+```
+
+Why use `dom.create()`?
+------------------------
+- Single API for all DOM creation needs.
+- Reduces duplicate helper methods.
+- Easier to read and maintain.
+- Supports attributes, styles, data, and events in one place.
+- Consistent behavior across all projects.
+
+Recommended pattern for future projects
+--------------------------------------
+Always build visual elements with `dom.create()` instead of creating raw strings or using separate helper functions.
+
+Example best practice:
+```javascript
+const card = dom.create('card', '#app', {
+  tag: 'article',
+  id: 'projectCard',
+  html: '<h3>Project</h3><p>Status: active</p>',
+  data: { projectId: 101 },
+  style: 'border: 1px solid #ccc; padding: 16px;',
+  on: {
+    click() { console.log('card clicked'); }
+  }
+});
+```
+
+This keeps DOM creation centralized and easy to update in one place.

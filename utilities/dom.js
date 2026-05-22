@@ -15,6 +15,7 @@ if (window.jQuery && $.cssNumber) {
 window.dom = {
     /**
      * Highly optimized universal element builder.
+     * Usage: dom.create("class-name", "#parent-id", { tag: "div", html: "content" })
      */
     create(className, appendTo, options = {}) {
         const tagName = options.tag || "div";
@@ -49,22 +50,48 @@ window.dom = {
         return appendTo ? $el.appendTo(appendTo) : $el;
     },
 
-    // 🚀 THE GLOBAL ATTACHMENT
-    // Automatically binds your date calculations engine here
+    // ------------------------------------------------------------------------
+    // Standard creation pattern
+    // ------------------------------------------------------------------------
+    // Use dom.create() for all new DOM construction.
+    // Example:
+    //   dom.create('card', '#app', {
+    //     tag: 'article',
+    //     id: 'taskCard',
+    //     html: '<h3>Task</h3>',
+    //     data: { id: 123 },
+    //     on: { click: () => console.log('clicked') }
+    //   });
+    //
+    // The create() method covers the previous helpers by supporting:
+    //   - tag, id, class, html, text
+    //   - attr, data, style, event handlers
+    //   - native append target via selector or element
+
+    /**
+     * 🚀 UNIFIED DATE ENGINE
+     * Single source of truth for all date operations
+     * 
+     * METHODS:
+     *   Formatting:
+     *     - dom.date.toYYYYMMDD(date) → "20260521"
+     *     - dom.date.toYYYY_MM_DD(date) → "2026-05-21"
+     *     - dom.date.createDateTitle(dateID) → "Sunday May 21st, 2026"
+     * 
+     *   Parsing:
+     *     - dom.date.parseID(dateID) → { year, month, day, date }
+     *     - dom.date.deconstructDateID(dateID) → [dateSunday, year, month, day, ...]
+     *     - dom.date.getDateInfo(dateID) → [monthName, dayNames, dayNumberArray, ...]
+     * 
+     *   Calendar:
+     *     - dom.date.firstDay(year, month)
+     *     - dom.date.dayInMonth(year, month)
+     *     - dom.date.getWeekNumber(year, month, day)
+     *     - dom.date.ordinalSuffix(n) → "st", "nd", "rd", "th"
+     */
     date: window.DateObject ? new window.DateObject() : null
 };
 
 
 
 
-////////////////////////////////**********  Function Call - RETAINED FOR REFERENCE  **********/
-dom.create("search-input", "#formContainer", {
-    tag: "input",
-    attr: { type: "text", placeholder: "Search records..." },
-    style: "grid-column-start: 2; color: #333;",
-    on: {
-        input: function() { console.log($(this).val()); }
-    }
-});
-
-/**  */

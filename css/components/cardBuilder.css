@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Component: cardBuilder
+   Desc:      Micro-modular styling for individual movable Kanban task cards
+   ========================================================================== */
+
+.task-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    border-left: 5px solid #bdc3c7; /* Fallback default panel border color */
+    cursor: grab;
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+    user-select: none;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Visual interaction feedback states */
+.task-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.task-card:active {
+    cursor: grabbing;
+    transform: scale(0.98);
+}
+
+/* Panel Tag Badges */
+.panel-tag-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+/* Task Title text rules */
+.task-card-title {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.4;
+}
+
+/* Blueprint / Quadrant Notes Container Block */
+.task-blueprint-notes {
+    font-size: 12px;
+    color: #64748b;
+    background-color: #f8fafc;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin: 0;
+    border-left: 3px solid #cbd5e1;
+    line-height: 1.5;
+}
+
+.task-blueprint-notes strong {
+    color: #475569;
+}

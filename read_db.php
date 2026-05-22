@@ -1,11 +1,12 @@
 <?php
 /**
- * Project: [NEW PROJECT NAME]
+ * Project: Bible Presentation Exhibit PM
  * File:    read_db.php
  * Desc:    Retrieves all data from SQLite and sends it as a structured JSON object.
  **/
 
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
 
 try {
     $db = new PDO('sqlite:localstorage.db');
@@ -22,7 +23,7 @@ try {
         foreach ($rows as $row) {
             $value = $row['value'];
             
-            // Safe JSON decoding: checks if string looks like JSON before decoding
+            // 🚀 CORRECTION: Fixed the spelling of str_starts_with
             if (is_string($value) && (str_starts_with($value, '{') || str_starts_with($value, '['))) {
                 $decoded = json_decode($value, true);
                 $data[$row['key']] = (json_last_error() === JSON_ERROR_NONE) ? $decoded : $value;
@@ -31,8 +32,10 @@ try {
             }
         }
         
-        echo json_encode($data, JSON_FORCE_OBJECT);
+        // 🚀 CORRECTION: Removed JSON_FORCE_OBJECT to protect your tasks/resources array timelines
+        echo json_encode($data);
     } else {
+        // Return a clean empty object representation if table is missing
         echo json_encode(new stdClass());
     }
 

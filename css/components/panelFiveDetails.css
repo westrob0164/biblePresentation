@@ -1,22 +1,3 @@
-/*
- * Project: Bible Presentation Exhibit PM
- * File:    css/styles.css
- * Desc:    Master structural style index sheet pulling in micro-modular component stylesheets.
- */
-
-/* 1. Core Framework and Global Layout Variables */
-@import url('components/global.css');
-
-/* 2. Micro-Modular UI Component Sheets (Match your JS views case-sensitively) */
-@import url('components/layout.css');
-@import url('components/presentationView.css');
-@import url('components/workshopView.css');
-@import url('components/cardBuilder.css'); 
-@import url('components/detailVault.css');
-
-@import url('components/shoppingList.css');
-
-
 /* ==========================================================================
    Component: panelFiveDetails
    Desc:      Specific presentation styling for the English Translation Panel

@@ -1,0 +1,84 @@
+/* Split Column Frame Layout */
+.exhibit-split-view {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+/* Left Navigation Sidebar Menu */
+.exhibit-sidebar {
+    flex: 0 0 320px;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.exhibit-sidebar h3 {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #7f8c8d;
+    letter-spacing: 0.5px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.panel-nav-item {
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Right Side Dynamic Data Frame */
+.exhibit-content-portal {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 6px;
+    min-height: 450px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.exhibit-content-portal h2 {
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ecf0f1;
+    color: #2c3e50;
+}
+
+.portal-body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+/* Leviticus 23 Standalone Table Instructions Block Callout */
+.portal-body blockquote {
+    background: #fff9db;
+    border-left: 4px solid #f1c40f;
+    padding: 15px;
+    margin: 20px 0;
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+}
+
+.portal-body ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.portal-body li {
+    margin-bottom: 8px;
+}

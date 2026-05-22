@@ -1,59 +1,96 @@
 /**
+ * Project: Bible Presentation Exhibit PM
+ * File:    js/components/cardBuilder.js
+ * Desc:    Modular component file creating a single data-driven task card element.
+ *          Enforces jQuery UI Draggable actions for Kanban column movement.
+ **/
 
-* Project: [NEW PROJECT NAME]
-* File: cardBuilder.js
-* Desc: Sample UI Component Blueprint.
-* Demonstrates One File One Function, dom.create, and dom.date.
-**/
+// Local configuration array mapping unique colors to each specific project panel
+const PANEL_COLORS = {
+    0: { label: 'General Frame', color: '#7f8c8d' }, // Neutral Slate Gray
+    1: { label: 'Panel 1: Scribe', color: '#8e44ad' }, // Royal Purple
+    2: { label: 'Panel 2: Archae.', color: '#d35400' }, // Terracotta Orange
+    3: { label: 'Panel 3: Sieve', color: '#16a085' }, // Teal Green
+    4: { label: 'Panel 4: Scroll', color: '#27ae60' }, // Emerald Green
+    5: { label: 'Panel 5: KJV Line', color: '#c0392b' } // Crimson Red
+};
 
-export default function cardBuilder(appendToContainer, projectData = {}) {
-// 1. Extract individual properties from your database object payload
-    const projectId = projectData.id || "unknown";
-    const projectName = projectData.name || "Untitled Project";
-    const rawDateToken = projectData.dateToken || "DATE_20260518";
-
-    // 2. Compute a human-readable calendar label using your global dom.date helper
-    // No imports needed! This reads right from your utilities/dom.js engine
-    const calendarArray = dom.date.createDateTitle(rawDateToken);
-    const humanReadableDate = calendarArray[0];
-
-    // 3. Construct the outer wrapper box using your universal dom.create engine
-    const $card = dom.create("ui-project-card", appendToContainer, {
-        id: "card_" + projectId,
-        style: "border: 1px solid #ccc; padding: 15px; margin: 10px; border-radius: 5px; background: #fff;"
-    });
-
-    // 4. Inject the Project Title Heading
-    dom.create("card-title", $card, {
-        tag: "h4",
-        text: projectName,
-        style: "margin: 0 0 5px 0; color: #333;"
-    });
-
-    // 5. Inject the Calculated Calendar Date Label
-    dom.create("card-date-label", $card, {
-        tag: "small",
-        text: "Created: " + humanReadableDate,
-        style: "color: #666; display: block; margin-bottom: 15px;"
-    });
+/**
+ * Builds a single task card inside a targeted lane element list.
+ * Case-sensitive default export matches filename exactly per standards blueprint rules.
+ * @param {jQuery} $appendTo The target column list jQuery element container.
+ * @param {Object} task The specific task record object retrieved from window.DATA.
+ */
+export default function cardBuilder($appendTo, task) {
     
-    // 6. Inject an Action Button with an inline operational click event
-    dom.create("card-action-btn", $card, {
-        tag: "button",
-        text: "Complete Project",
-        style: "background: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer;",
-    on: {
-        click: function() {
-                alert("Action triggered for project ID: " + projectId);
-                // Example of updating your global state tree
-                if (window.DATA && window.DATA.collections) {
-                    window.DATA.activeId = projectId;
-                }
-                // Toggle a visual feedback style instantly using standard jQuery
-                $card.css("opacity", "0.5");
-            }
+    // 1. Build the foundational task card shell element wrapper
+    const $card = window.dom.create('task-card', $appendTo, {
+        tag: 'article',
+        id: task.id
+    });
+
+    // Extract color parameters based on the task panel association ID
+    const panelMeta = PANEL_COLORS[task.panelId] || { label: 'Unknown', color: '#bdc3c7' };
+
+    // Apply the specific panel edge border accent to the card frame dynamically
+    $card.css('border-left-color', panelMeta.color);
+
+    // 2. Inject the colored Panel Tag Badge element
+    window.dom.create('panel-tag-badge', $card, {
+        tag: 'span',
+        text: panelMeta.label,
+        style: `background-color: ${panelMeta.color};`
+    });
+
+    // 3. Inject the Task Title Name text node
+    window.dom.create('task-card-title', $card, {
+        tag: 'h4',
+        text: task.name
+    });
+
+    // 4. Inject your spatial quadrant blueprint layout notes if text exists
+    if (task.notes && task.notes.trim() !== "") {
+        window.dom.create('task-blueprint-notes', $card, {
+            tag: 'p',
+            html: `<strong>Blueprint:</strong> ${task.notes}`
+        });
+    }
+
+    // 5. Activate drag mechanics using your loaded jQuery UI library tools
+        // 5. Activate drag mechanics using your loaded jQuery UI library tools
+    $card.draggable({
+        revert: 'invalid',      // Snaps card cleanly back into its column if dropped outside a lane list
+        containment: '#workspace-canvas', // Stop cards from being accidentally dragged off the web screen
+        cursor: 'move',
+        zIndex: 1000,
+        
+        // 🚀 THE FIX: Use a custom helper function to capture and freeze the card's width
+        helper: function() {
+            // Clone the original task card element
+            const $clone = $(this).clone();
+            
+            // Get the exact physical pixel width of the lane column right now
+            const currentWidth = $(this).outerWidth();
+            
+            // Explicitly force the clone to retain this exact width while floating in the air
+            $clone.css({
+                'width': currentWidth + 'px',
+                'box-sizing': 'border-box'
+            });
+            
+            return $clone;
+        },
+        
+        start: function() {
+            // Keep track of the item currently in flight inside the global state mirror
+            window.DATA.activeId = task.id;
+            $(this).css('opacity', '0.2'); // Fade the original element slightly during transit
+        },
+        stop: function() {
+            window.DATA.activeId = null;
+            $(this).css('opacity', '1.0'); // Instantly restore card opacity on release
         }
     });
-    return $card;
+
 }
 

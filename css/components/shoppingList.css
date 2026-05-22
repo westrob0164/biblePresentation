@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Component: shoppingList
+   Desc:      High-density, interactive grocery-style procurement checklist
+   ========================================================================== */
+
+.shopping-container {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+/* Master Procurement Table Grid Layout */
+.shopping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.shopping-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 2px solid #e2e8f0;
+    letter-spacing: 0.5px;
+}
+
+.shopping-row {
+    border-bottom: 1px solid #edf2f7;
+    transition: background-color 0.15s ease;
+}
+
+.shopping-row:hover {
+    background-color: #f8fafc;
+}
+
+.shopping-row td {
+    padding: 14px 15px;
+    vertical-align: middle;
+    color: #1e293b;
+}
+
+/* Checkbox Toggle Styling */
+.procure-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #2ecc71; /* High visibility matching completed milestones */
+}
+
+/* External Link Icons */
+.vendor-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.vendor-link:hover {
+    text-decoration: underline;
+}
+
+/* Completed / Ordered Visual Mutation State */
+.row-ordered {
+    color: #94a3b8 !important;
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Running Budget Metric Display Cards */
+.budget-summary-strip {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.budget-card {
+    flex: 1;
+    background: #f1f5f9;
+    border-radius: 6px;
+    padding: 15px;
+    border-left: 4px solid #64748b;
+}
+
+.budget-card h5 {
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.budget-card span {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+}

@@ -1,0 +1,96 @@
+{
+  "presentationContent": [
+    {
+      "panelId": 0,
+      "headline": "📦 General Infrastructure and Setup",
+      "body": "Welcome to our Bible Presentation Archive. Use the left menu to view historical records, artifact summaries, and translation timelines across our physical exhibition panels.",
+      "bullets": []
+    },
+    {
+      "panelId": 1,
+      "headline": "📜 The Tools of Truth: The Ancient Scribe",
+      "body": "Before computers and printing presses, every copy of the Scriptures was written entirely by hand. The survival of the text depended on the raw materials and rigorous precision of the ancient world.",
+      "bullets": [
+        "<strong>Papyrus:</strong> Paper made from the pressed, woven fibers of Egyptian river reeds.",
+        "<strong>Parchment:</strong> Highly durable writing surfaces crafted from scraped, dried animal skins.",
+        "<strong>The Qalam:</strong> Clean reed pens cut at a sharp angle to hold thick, iron- or carbon-based inks.",
+        "<strong>The One-Mistake Rule:</strong> Scribes were forbidden from writing even a single letter from memory. A single spelling error on a panel condemned that entire animal skin section to destruction."
+      ]
+    },
+    {
+      "panelId": 2,
+      "headline": "🏺 The Silent Witnesses: Earth and Archaeology",
+      "body": "Archaeology continues to verify the historical stability of the biblical text, putting modern readers within generations of the original eyewitness accounts.",
+      "bullets": [
+        "<strong>The Dead Sea Scrolls (1947):</strong> Over 900 ancient scrolls discovered in the Qumran cliffs pushed our oldest Hebrew texts back by 1,000 years, proving the text had not changed over a millennia of copying.",
+        "<strong>The Clay Vaults:</strong> The scrolls survived for millennia because they were sealed inside heavy earthenware jars.",
+        "<strong>Papyrus P52:</strong> A scrap of papyrus measuring just 2.5 x 3.5 inches containing lines from John 18, safely dated to roughly 125 CE—just decades after John originally wrote his Gospel."
+      ]
+    },
+    {
+      "panelId": 3,
+      "headline": "⏳ The Sieve of History: How the Canon Was Sealed",
+      "body": "The early councils did not 'choose' or 'invent' the books of the Bible. Instead, they acted like a defensive jury, using three strict tests to recognize the books that had already guided the global community for centuries.",
+      "bullets": [
+        "<strong>Apostolicity:</strong> Did the text come directly from an eyewitness Apostle or their immediate associate?",
+        "<strong>Orthodoxy:</strong> Did the teaching align perfectly with the older scriptures and the foundational rule of faith?",
+        "<strong>Catholicity:</strong> Was the book being used universally by isolated churches across the entire known world?"
+      ]
+    },
+    {
+      "panelId": 4,
+      "headline": "📖 Passing the Torch: The Living Word",
+      "body": "Interactive Station: Passing the Torch. Below this display board sits a physical standalone table displaying a child’s version of the Torah written in traditional Hebrew characters.",
+      "bullets": [
+        "<strong>👉 ACTION:</strong> Step forward to the tabletop wood cradle. The scroll handles are set exactly 10 inches apart using our custom pine stand template to present the two columns of Leviticus 23.",
+        "<strong>The Prophetic Calendar:</strong> Gently rotate the rollers to view the side-by-side spring and fall timelines of the Feasts of YHWH, tracing how ancient rehearsals map directly to faith history.",
+        "<strong>The Yad Pointer:</strong> Use the physical pointer resting on the table to track rows without touching or damaging the parchment."
+      ]
+    },
+    {
+      "panelId": 5,
+      "headline": "🇬🇧 The Mother Tongue: Manuscripts to the English Bible",
+      "body": "This module traces the historical line of transmission from original ancient language source texts down through centuries of sacrifice to reach the common English speaker.",
+      "bullets": [
+        "<strong>The Latin Monopoly:</strong> For nearly 1,000 years, Western Europe relied exclusively on the Latin Vulgate translated by Jerome in 405 CE. Because the text was kept in a dead language, common people could not read or understand it, relying entirely on church authorities for instruction.",
+        "<strong>John Wycliffe (1382):</strong> Known as the 'Morning Star of the Reformation,' Wycliffe hand-copied the very first complete translation of the Bible into Middle English. Because it was translated from Latin manuscripts before the printing press, each copy took a scribe up to 10 months to complete.",
+        "<strong>William Tyndale (1526):</strong> The father of the modern English Bible. Tyndale broke from Latin sources and translated the New Testament directly from the original Greek. Forced to flee England, he printed his Bibles in Germany and smuggled them back home hidden inside bolls of cloth.",
+        "<strong>The Ultimate Sacrifice:</strong> In 1536, Tyndale was betrayed, strangled, and burned at the stake. His dying words were, 'Lord, open the King of England's eyes!' Over 80% of the King James Version New Testament is a direct, unchanged copy of Tyndale's underground work.",
+        "<strong>The King James Version (1611):</strong> The realization of Tyndale's prayer. King James I authorized a massive committee of 47 scholars to create a singular, beautifully accurate translation for public church reading, heavily standardizing the English language for generations to come."
+      ]
+  }
+
+  ],
+  "workshopTasks": [
+    { "id": "t101", "name": "Cut and brace five 48x32-inch 1/2\" plywood face panels", "panelId": 0, "status": "to_build", "notes": "ENGINEERING: Add a 1x2 spruce framing cleat flat along the back edge of each board. This completely stops the plywood from warping or twisting under the weight of the props." },
+    { "id": "t102", "name": "Sand, prime, and paint the front face of all five boards", "panelId": 0, "status": "to_build", "notes": "AESTHETIC: Wipe away dust, prime, and apply two thin coats of matte gallery gray or off-white paint. This forms a premium museum backdrop before posters are mounted." },
+    { "id": "t103", "name": "Draft and format Panel 1 layout poster files in Canva", "panelId": 1, "status": "in_progress", "notes": "LAYOUT: Title the poster 'THE TOOLS OF TRUTH.' Use 72pt font for headers and 24pt for bullets. Leave empty spatial pockets in the layout margins for the physical props." },
+    { "id": "t104", "name": "Mount physical papyrus sheets, reed pen, and carbon inkwell", "panelId": 1, "status": "to_build", "notes": "SPATIAL PLACEMENT: Attach the raw Egyptian papyrus sheet flat to the TOP-LEFT quadrant using mounting tape. Mount the reed pen and inkpot in the BOTTOM-RIGHT corner as a visual anchor." },
+    { "id": "t105", "name": "Download high-res Great Isaiah Scroll image segments from Israel Museum site", "panelId": 2, "status": "to_build", "notes": "POSTER SPECS: Prepare a wide landscape panoramic strip (24 x 12 inches) displaying the Hebrew characters. Print on heavy matte poster stock to avoid room glare." },
+    { "id": "t106", "name": "Mount panoramic Isaiah scroll print, clay jar, and P52 fragment", "panelId": 2, "status": "to_build", "notes": "SPATIAL PLACEMENT: Center the 24x12 scroll graphic across the MIDDLE plane. Screw a small reinforced block shelf below it for the Qumran jar. Mount the tiny P52 replica inside a small border frame at EYE LEVEL on the right." },
+    { "id": "t107", "name": "Design geometric Funnel/Sieve Infographic for the selection process", "panelId": 3, "status": "to_build", "notes": "LAYOUT: Split the board vertically. Place the 3-fold text explanation on the LEFT side. Place the clean, colorful Sieve funnel graphic on the RIGHT side showing canonical filtering." },
+    { "id": "t108", "name": "Build custom wooden 10\" on-centre scroll cradle stand", "panelId": 4, "status": "to_build", "notes": "CARPENTRY: Trace your original factory cardboard stand template onto 1x4 select pine. Use a jigsaw to cut the precise handle loops. Sand the inner grooves with 220-grit until perfectly smooth to protect the scroll." },
+    { "id": "t109", "name": "txt: Assemble standalone interactive table layout for Leviticus 23", "panelId": 4, "status": "in_progress", "notes": "DECOUPLING STABILITY: Place a small accent table directly in front of the vertical Panel 4 easel. Set the weighted wooden scroll stand on top. Lay the Yad pointer and home handouts on the table surface." },
+    { "id": "t110", "name": "Source a 1611 King James Bible leaf facsimile or replica print page", "panelId": 5, "status": "to_order", "notes": "MATERIAL LOGISTICS: Look for an aged paper leaf showcasing the iconic Blackletter typography. Mount it inside a clean shadowbox frame directly to the middle of the plywood board." },
+    { "id": "t111", "name": "Draft historical lineage chart mapping Tyndale and Wycliffe to the KJV text", "panelId": 5, "status": "to_build", "notes": "LAYOUT: Draw a clean, top-to-bottom branching diagram tracing how Wycliffe’s hand-copied manuscripts and Tyndale’s printed text directly paved the way for the 1611 authorized translation." },
+    { 
+        "id": "t112", 
+        "name": "Source a vintage KJV Bible and small accent table for Panel 5 placement", 
+        "panelId": 5, 
+        "status": "to_build", 
+        "notes": "SYMMETRY ASSEMBLY: Position a small table directly beneath Panel 5. Open the Bible flat to Leviticus 23. Place your printed description sign card neatly next to the volume to mirror the Panel 4 scroll table layout." 
+    }
+
+  ],
+  "shoppingItems": [
+    { "id": "r101", "name": "Genuine Blank Egyptian Papyrus Sheets", "source": "Amazon/Etsy", "url": "https://amazon.ca", "isOrdered": false, "cost": 25.00, "panelId": 1 },
+    { "id": "r102", "name": "Traditional Reed Calligraphy Pen (Qalam)", "source": "Etsy", "url": "https://etsy.com", "isOrdered": false, "cost": 15.00, "panelId": 1 },
+    { "id": "r103", "name": "Carbon Black India Ink Bottle", "source": "Michaels/Hobby Store", "url": "", "isOrdered": false, "cost": 8.50, "panelId": 1 },
+    { "id": "r104", "name": "Qumran Terracotta Clay Scroll Jar Replica", "source": "Biblical Gift Shop", "url": "", "isOrdered": false, "cost": 45.00, "panelId": 2 },
+    { "id": "r105", "name": "Papyrus P52 Gospel Fragment Recreation", "source": "Etsy Artisan", "url": "https://etsy.com", "isOrdered": false, "cost": 30.00, "panelId": 2 },
+    { "id": "r106", "name": "1/2\" Sanded Aspen Plywood Sheets (Qty 2)", "source": "Local Lumber Yard", "url": "", "isOrdered": false, "cost": 90.00, "panelId": 0 },
+    { "id": "r107", "name": "1x2\" Spruce Backing cleats (Qty 12)", "source": "Local Lumber Yard", "url": "", "isOrdered": false, "cost": 36.00, "panelId": 0 },
+    { "id": "r108", "name": "1x4\" Select Pine Board (Qty 1 for Stand)", "source": "Local Lumber Yard", "url": "", "isOrdered": false, "cost": 18.00, "panelId": 4 },
+    { "id": "r109", "name": "3M Super 77 Large Spray Adhesive Can", "source": "Hardware Store", "url": "", "isOrdered": false, "cost": 16.99, "panelId": 0 }
+  ]
+}
